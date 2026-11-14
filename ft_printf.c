@@ -8,7 +8,7 @@ int ft_printf(const char *format,...)
     va_start(list, format);
     while(format[i])
     {
-        if(format[i] == '%')
+        if(format[i] == '%' && format[i+1])
         {
             i++;
             if(format[i] == 'c')
@@ -23,7 +23,7 @@ int ft_printf(const char *format,...)
             }
             else if(format[i] == 'p')
             {
-                count = count + 
+                count = count + va_arg(list, void *) 
                 i++;
             }
             else if(format[i] == 'd')
@@ -32,7 +32,10 @@ int ft_printf(const char *format,...)
                 i++;
             }
             else if(format[i] == 'i')
-            {i++;}
+            {
+                count = count + ft_putnbr(va_arg(list,int));
+                i++;
+            }
             else if(format[i] == 'u')
             {
                 count = count + ft_putnbr(va_arg(list,unsigned int));
@@ -40,11 +43,12 @@ int ft_printf(const char *format,...)
             }
             else if(format[i] == 'x')
             {
-                count = count + 
-                i++;}
+                count = count + print_hex(va_arg(list,unsigned int));
+                i++;
+            }
             else if(format[i] == 'X')
             {
-                count = count + 
+                count = count + print_hexbig(va_arg(list,unsigned int));
                 i++;}
             else if(format[i] == '%')
             {
@@ -53,19 +57,21 @@ int ft_printf(const char *format,...)
             }
             else
             {
+                count = count + ft_putchar('%');
                 count = count + ft_putchar(format[i]);
                 i++;
             }
         }
         else
         {
-            ft_putchar(format[i]);
+            count = count + ft_putchar(format[i]);
             i++;
         }
     }return count;
 }
 int main ()
 {
-    ft_printf("%s   %c %d","djckjdwkc", 'f', 94809482);
-    //ft_printf("%d",ft_printf("%d    ",44));
+    ft_printf("  %X    %x                        ",94809482 , 94809482);
+    printf("  %X    %x                        ",94809482 , 94809482);
+
 }

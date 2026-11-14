@@ -6,14 +6,15 @@ int print_hex(unsigned int n)
     int counter = 0;
     if(n < 16)
     {
-                ft_putchar(hex[n]);
-                return 0;
+        ft_putchar(hex[n]);
+        counter += 1;
     }
     else
     {
-        print_hex(n / 16);
+        counter = counter + print_hex(n / 16);
         ft_putchar(hex[n % 16]);
-    }return 0;
+        counter = counter + 1;
+    }return counter;
 
 }
 // int main()

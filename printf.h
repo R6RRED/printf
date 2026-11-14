@@ -11,5 +11,6 @@ int	ft_putstr(char *s);
 int ft_putchar(char c);
 int ft_printf(const char *format,...);
 int	ft_putnbr(int n);
+int print_hexbig(unsigned int n);
 
 #endif
