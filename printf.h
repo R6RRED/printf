@@ -6,11 +6,12 @@
 #include<unistd.h>
 #include<stdarg.h>
 
-int print_hex(unsigned int n);
+int print_hex(unsigned long n);
 int	ft_putstr(char *s);
 int ft_putchar(char c);
 int ft_printf(const char *format,...);
 int	ft_putnbr(int n);
 int print_hexbig(unsigned int n);
+int ft_pointer(void *p);
 
 #endif

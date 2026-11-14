@@ -23,7 +23,7 @@ int ft_printf(const char *format,...)
             }
             else if(format[i] == 'p')
             {
-                count = count + va_arg(list, void *) 
+                count = count + ft_pointer(va_arg(list, void *)); 
                 i++;
             }
             else if(format[i] == 'd')
@@ -69,9 +69,22 @@ int ft_printf(const char *format,...)
         }
     }return count;
 }
-int main ()
-{
-    ft_printf("  %X    %x                        ",94809482 , 94809482);
-    printf("  %X    %x                        ",94809482 , 94809482);
 
+int main(void)
+{
+    int a = 42;
+    char c = 'A';
+    int *ptr = &a;
+    char *str = &c;
+
+    printf("Original: %p\n", (void *)&a);
+    ft_printf("Mine:     %p\n\n", (void *)&a);
+
+    printf("Original: %p\n", (void *)str);
+    ft_printf("Mine:     %p\n\n", (void *)str);
+
+    printf("Original: %p\n", (void *)ptr);
+    ft_printf("Mine:     %p\n", (void *)ptr);
+
+    return (0);
 }

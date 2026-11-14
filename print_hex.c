@@ -1,6 +1,6 @@
 #include"printf.h"
 #include <limits.h>
-int print_hex(unsigned int n)
+int print_hex(unsigned long n)
 {
     char *hex="0123456789abcdef";
     int counter = 0;
