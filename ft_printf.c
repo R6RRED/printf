@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "printf.h"
+#include"ft_printf.h"
 int ft_printf(const char *format,...)
 {
     va_list list;
@@ -38,7 +38,7 @@ int ft_printf(const char *format,...)
             }
             else if(format[i] == 'u')
             {
-                count = count + ft_putnbr(va_arg(list,unsigned int));
+                count = count + ft_putunbr(va_arg(list,unsigned int));
                 i++;
             }
             else if(format[i] == 'x')
@@ -67,24 +67,25 @@ int ft_printf(const char *format,...)
             count = count + ft_putchar(format[i]);
             i++;
         }
-    }return count;
+    }va_end(list);
+return (count);
 }
 
-int main(void)
-{
-    int a = 42;
-    char c = 'A';
-    int *ptr = &a;
-    char *str = &c;
+// int main(void)
+// {
+//     int a = 42;
+//     char c = 'A';
+//     int *ptr = &a;
+//     char *str = &c;
 
-    printf("Original: %p\n", (void *)&a);
-    ft_printf("Mine:     %p\n\n", (void *)&a);
+//     printf("Original: %p\n", (void *)&a);
+//     ft_printf("Mine:     %p\n\n", (void *)&a);
 
-    printf("Original: %p\n", (void *)str);
-    ft_printf("Mine:     %p\n\n", (void *)str);
+//     printf("Original: %p\n", (void *)str);
+//     ft_printf("Mine:     %p\n\n", (void *)str);
 
-    printf("Original: %p\n", (void *)ptr);
-    ft_printf("Mine:     %p\n", (void *)ptr);
+//     printf("Original: %p\n", (void *)ptr);
+//     ft_printf("Mine:     %p\n", (void *)ptr);
 
-    return (0);
-}
+//     return (0);
+// }

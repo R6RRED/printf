@@ -10,16 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<unistd.h>
+#include"ft_printf.h"
 
 int	ft_putstr(char *s)
 {
 	int count = 0;
 	if (s == NULL)
-		return 0;
+    s = "(null)";
 	while (*s != '\0')
 	{
-		write(1, s, 1);
+		if (write(1, s, 1) < 0)
+			return -1;
 		s++;
 		count++;
 	}return count;

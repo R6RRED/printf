@@ -9,7 +9,7 @@
 /*   Updated: 2026/11/03 17:05:35 by username        ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
-#include"printf.h"
+#include"ft_printf.h"
 #include<limits.h>
 int	ft_putnbr(int n)
 {
@@ -23,10 +23,8 @@ int	ft_putnbr(int n)
 		count = count + 1;
 	}
 	if (nb >= 10)
-	{
-		ft_putnbr(nb / 10);
-		count = count + 1;
-	}
+    count += ft_putnbr(nb / 10);
+	
 	ft_putchar((nb % 10) + '0');
 	count += 1;
 	return count;

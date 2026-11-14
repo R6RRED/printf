@@ -13,5 +13,6 @@ int ft_printf(const char *format,...);
 int	ft_putnbr(int n);
 int print_hexbig(unsigned int n);
 int ft_pointer(void *p);
+int ft_putunbr(unsigned int n);
 
 #endif
