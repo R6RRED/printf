@@ -12,13 +12,15 @@
 
 #include<unistd.h>
 
-void	ft_putstr_fd(char *s)
+int	ft_putstr_fd(char *s)
 {
+	int count = 0;
 	if (s == NULL)
 		return ;
 	while (*s != '\0')
 	{
 		write(1, s, 1);
 		s++;
-	}
+		count++;
+	}return count;
 }
