@@ -6,13 +6,10 @@
 #include<unistd.h>
 #include<stdarg.h>
 
-void *malloc(size_t size);
-void free(void *ptr);
-ssize_t write(int fd, const void *buf, size_t count);
+int print_hex(unsigned int n);
+int	ft_putstr(char *s);
 int ft_putchar(char c);
-// void va_start(va_list ap, last);
-// type va_arg(va_list ap, type);
-// void va_end(va_list ap);
-// void va_copy(va_list dest, va_list src);
+int ft_printf(const char *format,...);
+int	ft_putnbr(int n);
 
 #endif

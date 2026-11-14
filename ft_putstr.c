@@ -12,11 +12,11 @@
 
 #include<unistd.h>
 
-int	ft_putstr_fd(char *s)
+int	ft_putstr(char *s)
 {
 	int count = 0;
 	if (s == NULL)
-		return ;
+		return 0;
 	while (*s != '\0')
 	{
 		write(1, s, 1);
