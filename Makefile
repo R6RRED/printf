@@ -10,7 +10,7 @@ SRC =  print_hex.c\
        ft_putnbr.c\
        print_hexbig.c\
        ft_pointer.c\
-       ft_putunbr.c
+       ft_putunbr.c\
 
 OBJ = $(SRC:.c=.o)
 
