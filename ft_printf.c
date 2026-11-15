@@ -1,27 +1,39 @@
-#include <stdio.h>
-#include"ft_printf.h"
-int check_format(va_list list, char c)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amel-bad <amel-bad@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/15 11:35:28 by username          #+#    #+#             */
+/*   Updated: 2026/11/15 12:08:42 by amel-bad         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
+
+int	check_format(va_list list, char c)
 {
-    if(c == 'c')
-    return ft_putchar(va_arg(list,int));
-            else if(c == 's')
-    return ft_putstr(va_arg(list,char *));
-            else if(c == 'p')
-                return ft_pointer(va_arg(list, void *)); 
-            else if(c == 'd')
-                return ft_putnbr(va_arg(list,int));
-            else if(c == 'i')
-                return ft_putnbr(va_arg(list,int));
-            else if(c == 'u')
-                return ft_putunbr(va_arg(list,unsigned int));
-            else if(c == 'x')
-                return print_hex(va_arg(list,unsigned int));
-            else if(c == 'X')
-                return print_hexbig(va_arg(list,unsigned int));
-            else if(c == '%')
-                return ft_putchar('%');
-            else
-               return -1;
+	if (c == 'c')
+		return (ft_putchar(va_arg(list, int)));
+	else if (c == 's')
+		return (ft_putstr(va_arg(list, char *)));
+	else if (c == 'p')
+		return (ft_pointer(va_arg(list, void *)));
+	else if (c == 'd')
+		return (ft_putnbr(va_arg(list, int)));
+	else if (c == 'i')
+		return (ft_putnbr(va_arg(list, int)));
+	else if (c == 'u')
+		return (ft_putunbr(va_arg(list, unsigned int)));
+	else if (c == 'x')
+		return (print_hex(va_arg(list, unsigned int)));
+	else if (c == 'X')
+		return (print_hexbig(va_arg(list, unsigned int)));
+	else if (c == '%')
+		return (ft_putchar('%'));
+	else
+		return (-1);
 }
 
 int	ft_printf(const char *format, ...)
@@ -38,8 +50,8 @@ int	ft_printf(const char *format, ...)
 	while (format[i])
 	{
 		if (format[i] == '%' && format[i + 1])
-			count += check_format(list, format[i++ + 1]);
-		else if (format[i] == '%' && format[i + 1] == '\0')
+			count += check_format(list, format[++i]);
+		else if (format[i] == '%')
 		{
 			va_end(list);
 			return (-1);

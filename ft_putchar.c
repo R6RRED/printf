@@ -1,6 +1,20 @@
-#include"ft_printf.h"
-int ft_putchar(char c)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                       :::      ::::::::    */
+/*   ft_putchar.c                                      :+:      :+:    :+:    */
+/*                                                   +:+ +:+         +:+      */
+/*   By: username <username@student.42tokyo.jp>    #+#  +:+       +#+         */
+/*                                               +#+#+#+#+#+   +#+            */
+/*   Created: 2026/11/15 11:35:37 by username         #+#    #+#              */
+/*   Updated: 2026/11/15 11:35:38 by username        ###   ########.fr        */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
+
+int	ft_putchar(char c)
 {
-    write(1,&c,1);
-    return 1;
+	if (write(1, &c, 1) != 1)
+		return (-1);
+	return (1);
 }

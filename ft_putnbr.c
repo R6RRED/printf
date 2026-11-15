@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                       :::      ::::::::    */
-/*   ft_putnbr_fd.c                                    :+:      :+:    :+:    */
+/*   ft_putnbr.c                                       :+:      :+:    :+:    */
 /*                                                   +:+ +:+         +:+      */
 /*   By: username <username@student.42tokyo.jp>    #+#  +:+       +#+         */
 /*                                               +#+#+#+#+#+   +#+            */
 /*   Created: 2026/11/03 17:05:33 by username         #+#    #+#              */
-/*   Updated: 2026/11/03 17:05:35 by username        ###   ########.fr        */
+/*   Updated: 2026/11/15 11:35:41 by username        ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
-#include"ft_printf.h"
-#include<limits.h>
+
+#include "ft_printf.h"
+
 int	ft_putnbr(int n)
 {
 	long	nb;
-	int count = 0;
+	int		count;
+
+	count = 0;
 	nb = n;
 	if (nb < 0)
 	{
-		ft_putchar('-');
+		count += ft_putchar('-');
 		nb = -nb;
-		count = count + 1;
 	}
 	if (nb >= 10)
-    count += ft_putnbr(nb / 10);
-	
-	ft_putchar((nb % 10) + '0');
-	count += 1;
-	return count;
+		count += ft_putnbr(nb / 10);
+	count += ft_putchar((nb % 10) + '0');
+	return (count);
 }
 
 // int main()

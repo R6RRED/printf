@@ -1,13 +1,27 @@
-#include"ft_printf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_pointer.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amel-bad <amel-bad@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/15 11:35:13 by username          #+#    #+#             */
+/*   Updated: 2026/11/15 11:54:57 by amel-bad         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int ft_pointer(void *p)
+#include "ft_printf.h"
+
+int	ft_pointer(void *p)
 {
-    if (p == NULL)
-    return (ft_putstr("(nil)"));
-    
-    unsigned long ad = (unsigned long) p;
-    int count = 0;
-    count += ft_putstr("0x");
-    count = count + print_hex(ad);
-    return count;
+	unsigned long	ad;
+	int				count;
+
+	if (p == NULL)
+		return (ft_putstr("(nil)"));
+	count = 0;
+	ad = (unsigned long)p;
+	count += ft_putstr("0x");
+	count += print_hex(ad);
+	return (count);
 }
